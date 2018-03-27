@@ -1,2 +1,2 @@
-# react_native_todo_app
+# SR To Do
 To Do App made with React Native
