@@ -62,16 +62,19 @@ export default class App extends React.Component {
         </View>
       </View>;
   }
+
   _controllNewToDo = text => {
     this.setState ({
       newToDo: text
     });
   };
+
   _loadToDos = () => {
     this.setState({
       loadedToDos: true
     });
   };
+
   _addToDo = () => {
     const { newToDo } = this.state;
     if(newToDo != "") {
@@ -99,7 +102,8 @@ export default class App extends React.Component {
         };
       });
     }
-  }
+  };
+
   _deleteToDo = (id) => {
     this.setState(prevState => {
       const toDos = prevState.toDos;
@@ -111,7 +115,8 @@ export default class App extends React.Component {
       this._saveToDos(newState.toDos);
       return {...newState};
     });
-  }
+  };
+
   _uncompleteToDo = (id) => {
     this.setState(prevState => {
       const newState = {
@@ -128,6 +133,7 @@ export default class App extends React.Component {
       return { ...newState }; 
     });
   };
+
   _completeToDo = (id) => {
     this.setState(prevState => {
       const newState = {
@@ -143,6 +149,7 @@ export default class App extends React.Component {
       return { ...newState }; 
     });
   };
+
   _updateToDo = (id, text) => {
     this.setState(prevState => {
       const newState = {
@@ -159,9 +166,10 @@ export default class App extends React.Component {
       return { ...newState };
     });
   };
+
   _saveToDos = (newToDos) => {
     const saveToDos = AsyncStorage.setItem("toDos", JSON.stringify(newToDos));
-  }
+  };
 }
 
 const styles = StyleSheet.create({
