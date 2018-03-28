@@ -48,7 +48,9 @@ export default class App extends React.Component {
           />
 
           <ScrollView contentContainerStyle={styles.toDos}>
-            {Object.values(toDos).map(toDo => (
+            {Object.values(toDos)
+            .reverse()
+            .map(toDo => (
               <ToDo
                 key={toDo.id}
                 deleteToDo={this._deleteToDo}
@@ -69,10 +71,15 @@ export default class App extends React.Component {
     });
   };
 
-  _loadToDos = () => {
-    this.setState({
-      loadedToDos: true
-    });
+  _loadToDos = async () => {
+    try {
+      const toDos = await AsyncStorage.getItem("toDos");
+      console.log(toDos);
+      const parsedToDos = JSON.parse(toDos);
+      this.setState({ loadedToDos: true, toDos: parsedToDos });
+    } catch(err) {
+      console.log(err);
+    }
   };
 
   _addToDo = () => {
