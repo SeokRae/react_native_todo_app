@@ -44,7 +44,8 @@ export default class App extends React.Component {
             placeholderTextColor={"#999"} 
             returnKeyType={"done"} 
             autoCorrect={false} 
-            onSubmitEditing={this._addToDo} 
+            onSubmitEditing={this._addToDo}
+            underlineColorAndroid={"transparent"}
           />
 
           <ScrollView contentContainerStyle={styles.toDos}>
@@ -76,7 +77,7 @@ export default class App extends React.Component {
       const toDos = await AsyncStorage.getItem("toDos");
       console.log(toDos);
       const parsedToDos = JSON.parse(toDos);
-      this.setState({ loadedToDos: true, toDos: parsedToDos });
+      this.setState({ loadedToDos: true, toDos: parsedToDos || {} });
     } catch(err) {
       console.log(err);
     }
