@@ -22,7 +22,15 @@ export default class App extends React.Component {
         <StatusBar barStyle="light-content" />
         <Text style={styles.title}>SR To Do</Text>
         <View style={styles.card}>
-          <TextInput style={styles.input} placeholder={"New To Do"} value={newToDo} onChangeText={this._controllNewToDo} placeholderTextColor={"#999"} returnKeyType={"done"} autoCorrect={false} />
+          <TextInput 
+            style={styles.input} 
+            placeholder={"New To Do"} 
+            value={newToDo} 
+            onChangeText={this._controllNewToDo} 
+            placeholderTextColor={"#999"} 
+            returnKeyType={"done"} 
+            autoCorrect={false} 
+          />
           <ScrollView contentContainerStyle={styles.toDos}>
             <ToDo />
           </ScrollView>
